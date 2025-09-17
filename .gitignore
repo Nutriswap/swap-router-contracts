@@ -1,7 +1,21 @@
-artifacts/
+# Dependencies
+node_modules/
+
+# Cache & temp
 cache/
 crytic-export/
-node_modules/
 typechain/
+
+# Environment & editor
 .env
 .vscode
+
+# Keep contract artifacts for SDKs & external projects
+!artifacts/contracts/**/*.json
+
+# Ignore debug artifacts only
+artifacts/**/*.dbg.json
+
+# Ignore test artifacts
+artifacts/contracts/test/**/*
+artifacts/contracts/base/**/*

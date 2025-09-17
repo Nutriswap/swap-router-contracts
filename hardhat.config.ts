@@ -1,25 +1,26 @@
-import '@nomiclabs/hardhat-ethers'
-import '@nomiclabs/hardhat-etherscan'
-import '@nomiclabs/hardhat-waffle'
-import 'hardhat-typechain'
-import 'hardhat-watcher'
-import 'dotenv/config'
+import { HardhatUserConfig } from "hardhat/config";
+import "@nomiclabs/hardhat-ethers";
+import "@nomiclabs/hardhat-etherscan";
+import "@nomiclabs/hardhat-waffle";
+import "@typechain/hardhat";
+import "hardhat-watcher";
+import "dotenv/config";
 
 const DEFAULT_COMPILER_SETTINGS = {
-  version: '0.7.6',
+  version: "0.7.6",
   settings: {
-    evmVersion: 'istanbul',
+    evmVersion: "istanbul",
     optimizer: {
       enabled: true,
       runs: 1_000_000,
     },
     metadata: {
-      bytecodeHash: 'none',
+      bytecodeHash: "none",
     },
   },
-}
+};
 
-export default {
+const config: HardhatUserConfig = {
   networks: {
     hardhat: {
       allowUnlimitedContractSize: false,
@@ -53,18 +54,22 @@ export default {
     },
   },
   etherscan: {
-    // Your API key for Etherscan
-    // Obtain one at https://etherscan.io/
     apiKey: process.env.ETHERSCAN_API_KEY,
   },
   solidity: {
     compilers: [DEFAULT_COMPILER_SETTINGS],
   },
+  typechain: {
+    outDir: "typechain-types",
+    target: "ethers-v5", // ✅ force ethers v5 bindings
+  },
   watcher: {
     test: {
-      tasks: [{ command: 'test', params: { testFiles: ['{path}'] } }],
-      files: ['./test/**/*'],
+      tasks: [{ command: "test", params: { testFiles: ["{path}"] } }],
+      files: ["./test/**/*"],
       verbose: true,
     },
   },
-}
+};
+
+export default config;
