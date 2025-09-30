@@ -31,9 +31,9 @@
     "node": ">=14"
   },
   "dependencies": {
-    "@nutriswap/v2-core": "git+https://github.com/nutriswap/v2-core.git#main",
-    "@nutriswap/v3-core": "git+https://github.com/nutriswap/v3-core.git#main",
-    "@nutriswap/v3-periphery": "git+https://github.com/nutriswap/v3-periphery.git#main",
+    "@nutriswap/v2-core": "git+https://github.com/Nutriswap/v2-core.git#main",
+    "@nutriswap/v3-core": "git+https://github.com/Nutriswap/v3-core.git#main",
+    "@nutriswap/v3-periphery": "git+https://github.com/Nutriswap/v3-periphery.git#main",
     "@openzeppelin/contracts": "3.4.2-solc-0.7",
     "dotenv": "^16.4.5",
     "hardhat-watcher": "^2.5.0"
